@@ -65,8 +65,9 @@ def dream(image_path, # path to image upon to dream
     if output_path:
         try:
             _save_img(img, fname=output_path)
+            print('Saved dreamed image to {}'.format(output_path))
         except:
-            pass
+            print('Failed to save dreamed image.')
     
     return _deprocess_image(img)
 
