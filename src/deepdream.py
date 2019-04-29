@@ -62,14 +62,15 @@ def dream(image_path, # path to image upon to dream
         img.assign_add(lost_detail)
         shrunk_original_img = _resize_img(original_img, shape)
 
+    dreamed_image = _deprocess_image(img)
     if output_path:
         try:
-            _save_img(img, fname=output_path)
+            _save_img(dreamed_image, fname=output_path)
             print('Saved dreamed image to {}'.format(output_path))
         except:
             print('Failed to save dreamed image.')
     
-    return _deprocess_image(img)
+    return dreamed_image
 
 
 def _gradient_ascent(x, model, layer_contributions, iterations, step, max_loss=None, verbose = False):
@@ -99,7 +100,6 @@ def _forward_loss(x, model, layer_contributions):
 
 
 def _save_img(img, fname):
-    pil_img = _deprocess_image(np.copy(img))
     scipy.misc.imsave(fname, pil_img)
 
 
@@ -115,7 +115,8 @@ def _preprocess_image(image_path):
 
 def _deprocess_image(x):
     # Util function to convert a tensor into a valid image.
-    x = x.numpy()
+    if type(x) is not np.ndarray:
+        x = x.numpy()
     x = x.reshape((x.shape[1], x.shape[2], 3))
     x /= 2.
     x += 0.5
