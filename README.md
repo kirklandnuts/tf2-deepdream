@@ -1,9 +1,9 @@
 # TF2 DeepDream
 This is a Tensorflow 2.0 implementation of DeepDream.
 
-![img/dreamed/dreamed_horse.png]
+![Dreamed Horse](img/dreamed/dreamed_horse.png)
 
-[This notebook]() demonstrates how you can start dreaming up images of your own with no more than a few lines of code. 
+[This notebook](https://github.com/timothydnguyen/tf2-deepdream/blob/master/src/tf2-deepdream.ipynb) demonstrates how you can start dreaming up images of your own with no more than a few lines of code.
 
 Enjoy!
 
