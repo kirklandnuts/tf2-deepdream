@@ -100,7 +100,7 @@ def _forward_loss(x, model, layer_contributions):
 
 
 def _save_img(img, fname):
-    scipy.misc.imsave(fname, pil_img)
+    scipy.misc.imsave(fname, img)
 
 
 def _preprocess_image(image_path):
